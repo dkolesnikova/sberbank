@@ -43,8 +43,19 @@ public class SoftwareProductTests {
     @Test
     void checkSberPressButtonInFooterPage() {
         step("Click on the 'СберПресс' button and check page has 'Все новости' text", () ->{
-           $(".kitt-footer-help__link").$(byText("СберПресс")).click();
+           $(".kitt-footer-help__link").$(byText("Частным клиентам")).click();
            $(".na-header").shouldHave(text("Все новости"));
+        });
+    }
+
+    @Test
+    void searchGenre () {
+        step("Кликнуть по полю поиск", ()-> {
+            $(".kitt-header-search").click();
+            $(".kitt-header-search__search").setValue("Карьера").pressEnter();
+        });
+        step("Проверить корректность ввода данных", ()-> {
+            $(".b-serp-item__title").shouldHave(text("Лента ежедневных новостей СберБанка и его дочерних компаний"));
         });
     }
 }
