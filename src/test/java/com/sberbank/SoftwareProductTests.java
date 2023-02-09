@@ -7,9 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class SoftwareProductTests {
@@ -41,7 +39,7 @@ public class SoftwareProductTests {
 
 
     @Test
-    void searchGenre () {
+    void searchGenreTest () {
         step("Кликнуть по полю поиск", ()-> {
             $(".kitt-header-search").click();
             $(".kitt-header-search__search").setValue("Карьера").pressEnter();
@@ -50,5 +48,19 @@ public class SoftwareProductTests {
             $(".b-serp-item__title").shouldHave(text("Лента ежедневных новостей СберБанка и его дочерних компаний"));
         });
     }
+
+    @Test
+    void JobSearchCheckTest () {
+        step ("Кликнуть по полю Еще", ()-> {
+            $(".kitt-header-sections__more-text_common").click();
+        });
+        step("Перейти в раздел Вакансии", ()-> {
+            $x("//div[@class='kitt-header-sections__dropdown']/a[contains(text(),'Вакансии')]").click();
+        });
+        step("Кликнуть и ввести запрос в строку поиска",()-> {
+            $(".styled__SearchWrapper-sc-h3io0q-6 dlnYlK").shouldHave(text("Найти вакансию"));
+        });
+    }
+
 
 }

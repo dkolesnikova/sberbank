@@ -3,7 +3,7 @@
     "project": "some project",
     "environment": "some env",
     "comment": "report done @ililoz",
-    "reportLink": "https://jenkins.autotests.cloud/job/student_dkolesni_jenkins/ws/allure-report/widgets/summary.json",
+    "reportLink": "",
     "language": "en",
     "allureFolder": "allure-report/",
     "enableChart": true
