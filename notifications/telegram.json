@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "some project",
+    "environment": "some env",
+    "comment": "report done @ililoz",
+    "reportLink": "https://jenkins.autotests.cloud/job/student_dkolesni_jenkins/ws/allure-report/widgets/summary.json",
+    "language": "en",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5624906103:AAE-vuD03f2aXIFVJVwCl4Z1SdidTO1r0Bs",
+    "chat": "-668874042",
+    "replyTo": ""
+  }
+}

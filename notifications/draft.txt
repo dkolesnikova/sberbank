@@ -1,0 +1,10 @@
+5624906103:AAE-vuD03f2aXIFVJVwCl4Z1SdidTO1r0Bs
+-668874042
+
+https://api.telegram.org/bot5624906103:AAE-vuD03f2aXIFVJVwCl4Z1SdidTO1r0Bs/getUpdates
+
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-668874042", "text": "И тебя Киви",
+"disable_notification": true}' https://api.telegram.org/bot5624906103:AAE-vuD03f2aXIFVJVwCl4Z1SdidTO1r0Bs/sendMessage
+
+java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.2.1.jar

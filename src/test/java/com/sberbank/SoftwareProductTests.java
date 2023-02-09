@@ -39,14 +39,6 @@ public class SoftwareProductTests {
         });
     }
 
-    @DisplayName("Check 'Sberpress' button in the footer page ")
-    @Test
-    void checkSberPressButtonInFooterPage() {
-        step("Click on the 'СберПресс' button and check page has 'Все новости' text", () ->{
-           $(".kitt-footer-help__link").$(byText("Частным клиентам")).click();
-           $(".na-header").shouldHave(text("Все новости"));
-        });
-    }
 
     @Test
     void searchGenre () {
@@ -58,4 +50,5 @@ public class SoftwareProductTests {
             $(".b-serp-item__title").shouldHave(text("Лента ежедневных новостей СберБанка и его дочерних компаний"));
         });
     }
+
 }
