@@ -2,7 +2,7 @@
   "base": {
     "project": "some project",
     "environment": "some env",
-    "comment": "report done @ililoz",
+    "comment": "report done ",
     "reportLink": "",
     "language": "en",
     "allureFolder": "allure-report/",

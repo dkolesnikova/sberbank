@@ -3,39 +3,50 @@ plugins {
     id 'io.qameta.allure' version '2.10.0'
 }
 
-repositories {
-    mavenCentral()
-}
+version '1.0-SNAPSHOT'
 
 allure {
     report {
-        version.set("2.19.0")
+        version.set("2.20.0")
     }
-    adapter {
-        aspectjWeaver.set(true)
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
             junit5 {
-                adapterVersion.set("2.19.0")
+                adapterVersion.set("2.20.0")
             }
         }
     }
 }
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.20.0",
+    selenideVersion = "6.10.3",
+    junitVersion = "5.9.1"
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
+            "com.codeborne:selenide:$selenideVersion",
             "com.github.javafaker:javafaker:1.0.2",
-            "com.codeborne:selenide:6.9.0",
-            "io.qameta.allure:allure-selenide:2.19.0",
-            "org.junit.jupiter:junit-jupiter:5.9.1",
-            "org.slf4j:slf4j-simple:1.7.32"
-    )
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.aspectj:aspectjweaver:1.9.9.1",
+            'org.slf4j:slf4j-simple:2.0.5',
+            "com.github.javafaker:javafaker:1.0.2",
+            'org.aeonbits.owner:owner:1.0.4',
+            'org.assertj:assertj-core:3.23.1')
+    testRuntimeOnly(
+            'org.slf4j:slf4j-simple:2.0.5')
 }
-
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -44,8 +55,4 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
-
-test {
-    useJUnitPlatform()
 }
